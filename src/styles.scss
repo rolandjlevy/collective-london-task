@@ -1,7 +1,11 @@
+$primary-green-light: rgb(0, 187, 211) !default;
+$primary-green-dark:rgb(69, 89, 99) !default;
+$nav-light:rgb(205, 215, 219) !default;
+
 * {
     box-sizing: border-box;
 }
-  
+
 html {
     box-sizing: border-box;
     height: 100%;
@@ -13,7 +17,7 @@ html {
 }
 
 body {
-    background-color: #fff;
+    background-color: red;
     box-sizing: border-box;
     font-family: 'Varela Round', sans-serif;
     font-size: 1rem;
