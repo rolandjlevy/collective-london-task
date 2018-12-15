@@ -4,16 +4,36 @@
     padding: 0;
 }
 
+/* lay out a grid of circular images */
+
 div.row {
+    font-size: 0; /* workaround to remove extra margins around divs */
     margin: 0;
+    min-width: calc(3 * 40px);
     padding: 0;
     width: 100vw;
 }
 
-div.block {
+div.column{
     display: inline-block;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
     text-align: center;
-    width: 33vw;
+    width: 33.3vw;
+}
+
+div.column img {
+    border-radius:50%;
+    height: 40px; 
+    object-fit: cover;
+    overflow: auto;
+    width: 40px;
+}
+
+div.column:not(:last-child) {
+    background-color: grey;
+}
+
+div.column:last-child {
+    background-color: rgb(147, 147, 147);
 }
