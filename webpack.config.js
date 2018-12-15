@@ -1,3 +1,4 @@
+// webpack.config.js
 const path = require('path');
 
 module.exports = {
@@ -9,22 +10,22 @@ module.exports = {
   },
   module: {
     rules: [
-        {
-        test: /\.scss$/,
-        use: [
-            {
-            loader: "style-loader"
-            }, {
-            loader: "css-loader"
-            }, {
-            loader: "sass-loader"
-            }
-        ]
-        },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
         loader: require.resolve('babel-loader')
+      },
+      {
+      test: /\.scss$/,
+      use: [
+          {
+          loader: "style-loader"
+          }, {
+          loader: "css-loader"
+          }, {
+          loader: "sass-loader"
+          }
+      ]
       }
     ]
   }

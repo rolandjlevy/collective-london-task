@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "description": "Technical test following telephone interview",
   "main": "index.js",
-  "dependencies": {},
+  "engines": {
+    "node": "11.3.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "npm test"
+  },
+  "dependencies": {
+    "@types/node": "^10.12.15"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
@@ -16,14 +26,9 @@
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2"
   },
-  "scripts": {
-    "test": "npm test",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production"
-  },
   "repository": {
     "type": "git",
-    "url": "collective-london-task"
+    "url": "git+https://rolandjlevy/collective-london-task.git"
   },
   "babel": {
     "presets": [
