@@ -3,7 +3,7 @@ $primary-green-dark:rgb(69, 89, 99) !default;
 $siderbar-colour:rgb(205, 215, 219) !default;
 $main-photo-size: 240px;
 $sidebar-photo-size: 140px;
-$list-photo-size: 40px;
+$list-photo-size: 45px;
 $text-colour: #455A64;
 
 *,
@@ -115,7 +115,7 @@ dialog {
     padding: 0;
     text-align: center;
     width: 17vw;
-    & img {
+    &__user-photo img {
         border: 2px solid white;
         border-radius: 50%;
         margin: 2rem 0 1rem 0;
@@ -266,12 +266,16 @@ dialog {
     vertical-align: middle;
     width: 45%;
     & img {
-        border-radius:50%;
+        border-radius: 50%;
         float: left;
         height: $list-photo-size;
         object-fit: cover;
         overflow: auto;
         width: $list-photo-size;
+        transition: all .2s ease-in-out;
+        &:hover { 
+            transform: scale(1.3); 
+        }
     }
     &__username {
         padding: 0.5rem 0 0.5rem 1rem;

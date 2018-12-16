@@ -2,6 +2,7 @@ require('./base.scss');
 
 const baseUrl = "https://randomuser.me/api/";
 const usersList = document.querySelector(".users-list");
+const sidebarPhoto = document.querySelector(".sidebar__user-photo");
 const nationalityForm = document.querySelector(".nationality-form");
 const searchForm = document.querySelector(".search-form");
 const mainInfo = document.querySelector(".content__main-info");
@@ -93,6 +94,10 @@ function selectUser (id) {
                 </li>
             </ul>
         </div>`;
+        console.log({sidebarPhoto});
+        sidebarPhoto.childNodes[1].attributes[0].value = users[id].picture.large; 
+        sidebarPhoto.childNodes[3].textContent = sentenceCase(users[id].name.first);
+        sidebarPhoto.childNodes[5].textContent = sentenceCase(users[id].name.last);
 }
 
 function animateUser() {
@@ -100,6 +105,17 @@ function animateUser() {
         [
             { transform: 'translateX(100%)', opacity:0 }, 
             { transform: 'translateX(0)', opacity:1 }
+        ], 
+        { 
+            duration: 600,
+            iterations: 1,
+            easing: 'cubic-bezier(0.42, 0, 0.58, 1)'
+        }
+    );
+    sidebarPhoto.animate(
+        [
+            { opacity:0 }, 
+            { opacity:1 }
         ], 
         { 
             duration: 600,
