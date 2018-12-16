@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +11,50 @@
 <body>
 
   <div class="wrapper">
-    <nav class="menu">
-      
+    <nav class="sidebar">
+      <img src="../static/images/person.png">
+      <h4>John Doe</h4>
+      <h5>Developer</h5>
+      <ul>
+        <li>Home</li>
+        <li>Blog</li>
+        <li>Community</li>
+        <li>Contest</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
     </nav>
+    <div class="content">
+      <header class="content__header">
+        <input type="text" placeholder="Search..."><img class="content__header-cog" src="/static/images/cog-icon.png">
+      </header>
+      <main class="content__main">
+        <section class="content__main-list">
+          <h3>Users</h3>
+          <p>
+            If you want to get contact information of a specific user, just select a group and then select the user from the list below
+          </p>
+          <p class="padding-v">
+            <div class="nationality">Select users by nationality</div><form class="nationality-form">
+              <select>
+                <option value="AU">Australian</option>
+                <option value="BR">Brazilian</option>
+                <option value="GB" selected>British</option>
+                <option value="DK">Danish</option>
+                <option value="NL">Dutch</option>
+                <option value="FR">French</option>
+                <option value="DE">German</option>
+                <option value="CH">Swiss</option>
+                <option value="TR">Turkish</option>
+              </select>
+            </form> 
+          </p>
+          <div class="list"></div>
+        </section>
+        <section class="content__main-info"></section>
+      </main>
+    </div>
   </div>
-
 </body>
-<script src="src/index.js"></script>
+<script src="./static/bundle.js"></script>
 </html>
