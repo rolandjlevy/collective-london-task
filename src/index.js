@@ -1,32 +1,59 @@
 require('./base.scss');
 
-// documentation: https://randomuser.me/documentation#howto
 const baseUrl = "https://randomuser.me/api/";
-const contentNode = document.querySelector(".list");
+const usersList = document.querySelector(".users-list");
+const sidebarPhoto = document.querySelector(".sidebar__user-photo");
 const nationalityForm = document.querySelector(".nationality-form");
+const searchForm = document.querySelector(".search-form");
 const mainInfo = document.querySelector(".content__main-info");
+const dialog = document.querySelector('#dialog');
 let users = [];
+
+usersList.addEventListener('click', event => {	
+    event.preventDefault();
+    if (event.target.matches('.user')){
+        selectUser(event.target.id);
+        animateUser();
+        // dialog.className = 'dialog-show';
+    }
+});
 
 nationalityForm.addEventListener('change', event => {	
     event.preventDefault();
-    const nationality = event.target.value;
-    fetchUsers (nationality);
+    fetchUsersNatMenu (event.target.value);
 });
 
-function fetchUsers (nat){
-    const url = `${baseUrl}?inc=name,location,cell,email,picture,id,dob&nat=${nat}&results=20`;
+searchForm.addEventListener('submit', event => {	
+    event.preventDefault();
+    fetchUsersSearch (event.target[0].value);
+});
+
+function fetchUsersNatMenu (nat){
+    const nationality = nat === "any" ? `` : `&nat=${nat}`;
+    const url = `${baseUrl}?inc=name,location,cell,email,picture,id,dob&results=20${nationality}`;
+    usersList.innerHTML = "Loading...";
     return fetch(url)
     .then(response => response.json())
     .then(body => {
         users = body.results;
-        contentNode.innerHTML = displayUsers(users);
-        selectUser(0);
-        contentNode.addEventListener('click', event => {	
-            event.preventDefault();
-            if (event.target.matches('.user')){
-                selectUser(event.target.id);
-            }
+        usersList.innerHTML = displayUsers(users);
+    }).catch(error => console.log(error));
+}
+
+fetchUsersNatMenu("AU");
+
+function fetchUsersSearch (name){
+    const url = `${baseUrl}?inc=name,location,cell,email,picture,id,dob&results=5000`;
+    usersList.innerHTML = `Checking for "${name}" in 5,000 records...`;
+    return fetch(url)
+    .then(response => response.json())
+    .then(body => {
+        users = body.results.filter(item => {
+            return item.name.first.includes(name.toLowerCase()) || item.name.last.includes(name.toLowerCase())
         });
+        const slicedUsers = users.slice(0, 20);
+        usersList.innerHTML = displayUsers(slicedUsers);
+        nationalityForm[0].selectedIndex = 0;
     }).catch(error => console.log(error));
 }
 
@@ -45,34 +72,60 @@ function displayUsers (arr) {
 }
 
 function selectUser (id) {
-    console.log(users[id])
     mainInfo.innerHTML =
         `<div class="content__main-info-photo">
             <img src="${users[id].picture.large}">
             <h4>${sentenceCase(users[id].name.first)} ${sentenceCase(users[id].name.last)}</h4>
             <h5>DOB: ${users[id].dob.date}</h5>
-          </div>
-          <div class="content__main-info-contact">
+        </div>
+        <div class="content__main-info-contact">
             <ul>
-              <li>
-                <div>City</div>
-                <div>${sentenceCase(users[id].location.city)}</div>
-              </li>
-              <li>
-                <div>Cell</div>
-                <div>${sentenceCase(users[id].cell)}</div>
-              </li>
-              <li>
-                <div>E-mail</div>
-                <div>${sentenceCase(users[id].email)}</div>
-              </li>
+                <li>
+                    <div>City</div>
+                    <div>${sentenceCase(users[id].location.city)}</div>
+                </li>
+                <li>
+                    <div>Cell</div>
+                    <div>${sentenceCase(users[id].cell)}</div>
+                </li>
+                <li>
+                    <div>E-mail</div>
+                    <div>${sentenceCase(users[id].email)}</div>
+                </li>
             </ul>
-          </div>`
+        </div>`;
+        console.log({sidebarPhoto});
+        sidebarPhoto.childNodes[1].attributes[0].value = users[id].picture.large; 
+        sidebarPhoto.childNodes[3].textContent = sentenceCase(users[id].name.first);
+        sidebarPhoto.childNodes[5].textContent = sentenceCase(users[id].name.last);
 }
 
-fetchUsers ('GB');
+function animateUser() {
+    mainInfo.animate(
+        [
+            { transform: 'translateX(100%)', opacity:0 }, 
+            { transform: 'translateX(0)', opacity:1 }
+        ], 
+        { 
+            duration: 600,
+            iterations: 1,
+            easing: 'cubic-bezier(0.42, 0, 0.58, 1)'
+        }
+    );
+    sidebarPhoto.animate(
+        [
+            { opacity:0 }, 
+            { opacity:1 }
+        ], 
+        { 
+            duration: 600,
+            iterations: 1,
+            easing: 'cubic-bezier(0.42, 0, 0.58, 1)'
+        }
+    );
+}
 
-// tools
+// convert strings to sentence case
 function sentenceCase (str) {
     return str
         .split(" ")

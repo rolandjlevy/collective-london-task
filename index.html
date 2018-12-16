@@ -11,9 +11,11 @@
 
   <div class="wrapper">
     <nav class="sidebar">
-      <img src="../static/images/person.png">
-      <h4>John Doe</h4>
-      <h5>Developer</h5>
+      <div class="sidebar__user-photo">
+        <img src="../static/images/placeholder.png" alt="Photo of selected user">
+        <h4></h4>
+        <h4></h4>
+      </div>
       <ul>
         <li>Home</li>
         <li>Blog</li>
@@ -25,7 +27,12 @@
     </nav>
     <div class="content">
       <header class="content__header">
-        <input type="text" placeholder="Search..."><img class="content__header-cog" src="/static/images/cog-icon.png">
+        <form class="search-form">
+          <label for="search-input">
+            <input type="text" id="search-input" class="search-input" name="search-input" placeholder="&#128269; Search by name">
+            <img class="content__header-cog" src="/static/images/cog-icon.png" alt="Search cog icon">
+          </label>
+        </form>
       </header>
       <main class="content__main">
         <section class="content__main-list">
@@ -34,26 +41,33 @@
             If you want to get contact information of a specific user, just select a group and then select the user from the list below
           </p>
           <p class="padding-v">
-            <div class="nationality">Select users by nationality</div><form class="nationality-form">
+            <div class="nationality">Select users by nationality:</div><form class="nationality-form">
               <select>
+                <option value="any" selected>Any</option>
                 <option value="AU">Australian</option>
                 <option value="BR">Brazilian</option>
-                <option value="GB" selected>British</option>
+                <option value="GB">British</option>
+                <option value="CA">Canadian</option>
                 <option value="DK">Danish</option>
                 <option value="NL">Dutch</option>
+                <option value="FI">Finish</option>
                 <option value="FR">French</option>
                 <option value="DE">German</option>
+                <option value="IE">Irish</option>
                 <option value="CH">Swiss</option>
                 <option value="TR">Turkish</option>
               </select>
-            </form> 
+            </form>
           </p>
-          <div class="list"></div>
+            <dialog id="dialog" class="dialog-hide">
+              <h1>User info here </h1>
+            </dialog>
+          <div class="users-list"></div>
         </section>
         <section class="content__main-info"></section>
       </main>
     </div>
   </div>
 </body>
-<script src="./static/bundle.js"></script>
+<script type="text/javascript" src="./static/bundle.js"></script>
 </html>
