@@ -61,8 +61,21 @@ input[type=text]{
     border:none;
 }
 
+.nationality {
+    display: inline;
+    overflow: auto;
+    float: left;
+    padding-right: 0.5rem;
+}
+
+.nationality-form select {
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
 .padding-v {
-    padding: 1rem 0;
+    padding: 0.5rem 0 0.5rem 0;
+    margin:0;
 }
 
 .center-align {
