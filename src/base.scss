@@ -190,6 +190,7 @@ input[type=text]{
             height: 100%;
             padding: 2.5rem;
             width: 58%;
+            overflow-y: scroll;
         }
         &-info {
             border-left: 2px solid $siderbar-colour;
@@ -242,6 +243,7 @@ input[type=text]{
 }
 
 .column{
+    cursor: pointer;
     display: inline-block;
     font-size: 1rem;
     margin: 1rem 0;
@@ -259,5 +261,8 @@ input[type=text]{
         padding: 0.5rem 0 0.5rem 1rem;
         overflow: hidden;
         margin: 0;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
