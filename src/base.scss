@@ -82,6 +82,22 @@ input[type=text]{
     text-align: center;
 }
 
+dialog {
+    background-color: $primary-green-light;
+    border: 1px solid $primary-green-dark;
+    width: 50%;
+    height: 50%;
+    z-index: 5;
+}
+
+.dialog-show {
+    display: block;
+}
+
+.dialog-hide {
+    display: none;
+}
+
 .wrapper {
     font-size: 0;
     height: 100%;

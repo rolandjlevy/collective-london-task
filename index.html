@@ -41,20 +41,26 @@
           <p class="padding-v">
             <div class="nationality">Select users by nationality:</div><form class="nationality-form">
               <select>
-                <option value="none" selected></option>
+                <option value="any" selected>Any</option>
                 <option value="AU">Australian</option>
                 <option value="BR">Brazilian</option>
                 <option value="GB">British</option>
+                <option value="CA">Canadian</option>
                 <option value="DK">Danish</option>
                 <option value="NL">Dutch</option>
+                <option value="FI">Finish</option>
                 <option value="FR">French</option>
                 <option value="DE">German</option>
+                <option value="IE">Irish</option>
                 <option value="CH">Swiss</option>
                 <option value="TR">Turkish</option>
               </select>
             </form> 
+            <dialog id="dialog" class="dialog-hide">
+              <h1>User info here </h1>
+            </dialog>
           </p>
-          <div class="list"></div>
+          <div class="users-list"></div>
         </section>
         <section class="content__main-info"></section>
       </main>
