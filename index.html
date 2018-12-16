@@ -25,7 +25,12 @@
     </nav>
     <div class="content">
       <header class="content__header">
-        <input type="text" placeholder="Search..."><img class="content__header-cog" src="/static/images/cog-icon.png">
+        <form class="search-form">
+          <label for="search-input">
+            <input type="text" id="search-input" class="search-input" name="search-input" placeholder="&#128269; Search by name">
+            <img class="content__header-cog" src="/static/images/cog-icon.png">
+          </label>
+        </form>
       </header>
       <main class="content__main">
         <section class="content__main-list">
@@ -34,11 +39,12 @@
             If you want to get contact information of a specific user, just select a group and then select the user from the list below
           </p>
           <p class="padding-v">
-            <div class="nationality">Select users by nationality</div><form class="nationality-form">
+            <div class="nationality">Select users by nationality:</div><form class="nationality-form">
               <select>
+                <option value="none" selected></option>
                 <option value="AU">Australian</option>
                 <option value="BR">Brazilian</option>
-                <option value="GB" selected>British</option>
+                <option value="GB">British</option>
                 <option value="DK">Danish</option>
                 <option value="NL">Dutch</option>
                 <option value="FR">French</option>

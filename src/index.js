@@ -4,48 +4,75 @@ require('./base.scss');
 const baseUrl = "https://randomuser.me/api/";
 const contentNode = document.querySelector(".list");
 const nationalityForm = document.querySelector(".nationality-form");
+const searchForm = document.querySelector(".search-form");
 const mainInfo = document.querySelector(".content__main-info");
 let users = [];
 
-nationalityForm.addEventListener('change', event => {	
+contentNode.addEventListener('click', event => {	
     event.preventDefault();
-    const nationality = event.target.value;
-    fetchUsers (nationality);
+    if (event.target.matches('.user')){
+        selectUser(event.target.id);
+    }
 });
 
-function fetchUsers (nat){
+nationalityForm.addEventListener('change', event => {	
+    event.preventDefault();
+    fetchUsersNatMenu (event.target.value);
+});
+
+searchForm.addEventListener('submit', event => {	
+    event.preventDefault();
+    fetchUsersSearch (event.target[0].value);
+});
+
+function fetchUsersSearch (name){
+    const url = `${baseUrl}?inc=name,location,cell,email,picture,id,dob&results=1000`;
+    contentNode.innerHTML = `Checking for "${name}" in 5,000 records...`;
+    return fetch(url)
+    .then(response => response.json())
+    .then(body => {
+        users = body.results.filter(item => {
+            return item.name.first.includes(name.toLowerCase()) || item.name.last.includes(name.toLowerCase())
+        });
+        contentNode.innerHTML = displayUsers(users, name);
+    }).catch(error => console.log(error));
+}
+
+function fetchUsersNatMenu (nat){
+    if (nat === "none") return;
     const url = `${baseUrl}?inc=name,location,cell,email,picture,id,dob&nat=${nat}&results=20`;
+    contentNode.innerHTML = "Loading...";
     return fetch(url)
     .then(response => response.json())
     .then(body => {
         users = body.results;
         contentNode.innerHTML = displayUsers(users);
-        selectUser(0);
-        contentNode.addEventListener('click', event => {	
-            event.preventDefault();
-            if (event.target.matches('.user')){
-                selectUser(event.target.id);
-            }
-        });
     }).catch(error => console.log(error));
 }
 
-function displayUsers (arr) {
+function displayUsers (arr, name='') {
     return arr.map((item, index) => {
         let str = ``;
         str += (index === 0 || index % 2 === 0) ? `<article class="row">` : ``;
         str += 
         `<div class="column" href="#">
             <img id="${index}" class="user" src="${item.picture.medium}">
-            <div id="${index}" class="column__username user">${sentenceCase(item.name.first)} ${sentenceCase(item.name.last)}</div>
+            <div id="${index}" class="column__username user">${highlight(item.name.first, name)} ${highlight(item.name.last, name)}</div>
         </div>`;
         str += (index === 0 || index % 2 === 0) ? `` : `</article>`;
+        // highlight(item.name.first, name);
         return str;
     }).join('');
 }
 
+// highlights matched string from search
+function highlight (string, chunk) {
+    const str = string.toLowerCase();
+    const ch = chunk.toLowerCase();
+    return str.includes(ch) ? sentenceCase(string.replace(chunk, `<strong>${chunk}</strong>`)) : sentenceCase(string);
+}
+
 function selectUser (id) {
-    console.log(users[id])
     mainInfo.innerHTML =
         `<div class="content__main-info-photo">
             <img src="${users[id].picture.large}">
@@ -70,9 +97,7 @@ function selectUser (id) {
           </div>`
 }
 
-fetchUsers ('GB');
-
-// tools
+// convert strings to sentence case
 function sentenceCase (str) {
     return str
         .split(" ")
