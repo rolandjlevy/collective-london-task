@@ -1,13 +1,21 @@
 $primary-green-light: rgb(0, 187, 211) !default;
 $primary-green-dark:rgb(69, 89, 99) !default;
-$nav-light:rgb(205, 215, 219) !default;
+$siderbar-colour:rgb(205, 215, 219) !default;
+$main-photo-size: 240px;
+$sidebar-photo-size: 140px;
+$list-photo-size: 40px;
+$text-colour: #455A64;
 
-* {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 html {
     box-sizing: border-box;
+    color: $text-colour;
+    font-family: 'Myriad Pro', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 100%;
     margin: 0;
     overflow: auto;
@@ -28,10 +36,233 @@ body {
     padding: 0;
 }
 
-.nav {
-    background-color: #d8d8d8;
+h3, h4, h5 {
+    margin: 0;
+    padding: 0.5rem 0 0 0;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    color: white;
+    font-size: 1.2rem;
+}
+
+h5 {
+    color: white;
+    font-size: 1rem;
+}
+
+input[type=text]{
+    border-radius: 1rem;
+    border:none;
+}
+
+.nationality {
+    display: inline;
+    overflow: auto;
+    float: left;
+    padding-right: 0.5rem;
+}
+
+.nationality-form select {
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.padding-v {
+    padding: 0.5rem 0 0.5rem 0;
+    margin:0;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.wrapper {
+    font-size: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+.sidebar {
+    background-color: $primary-green-dark;
+    display: inline-block;
+    height: 100vh;
+    margin: 0;
+    min-width: calc($sidebar-photo-size + 2rem);
+    padding: 0;
+    text-align: center;
+    width: 17vw;
+    & img {
+        border: 2px solid white;
+        border-radius: 50%;
+        margin: 2rem 0 1rem 0;
+        max-width: $sidebar-photo-size;
+        object-fit: cover;
+        overflow: auto;
+        vertical-align: top;
+        width: 90%;
+    }
+    & ul {
+        font-size: 1rem;
+        overflow: auto;
+        margin-top: 1rem;
+        padding: 0;
+        & img {
+            height: 16px;
+            width: 16px;
+        }
+        & li {
+            color: white;
+            list-style: none;
+            padding: 1rem 0 0 2rem;
+            text-align: left;
+        }
+        & li:before {
+            background-size: contain;
+            background-repeat: no-repeat;
+            content: '';
+            display: inline-block;
+            height: 16px;
+            padding: 0 1.5rem 0 1rem;
+         }
+        & li:first-child:before  { 
+            background-image: url("/static/images/home-icon.png"); 
+        }
+        & li:nth-child(2):before { 
+            background-image: url("/static/images/note-icon.png"); 
+        }
+        & li:nth-child(3):before { 
+            background-image: url("/static/images/users-icon.png"); 
+        }
+        & li:nth-child(4):before { 
+            background-image: url("/static/images/trophy-icon.png"); 
+        }
+        & li:nth-child(5):before { 
+            background-image: url("/static/images/info-icon.png"); 
+        }
+        & li:nth-child(6):before { 
+            background-image: url("/static/images/email-icon.png"); 
+        }
+    }
 }
 
 .content {
-    background-color: #f0f0f0;
+    display: inline-block;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    width: 82.9vw;
+    &__header {
+        background-color: $siderbar-colour;
+        font-size: 1rem;
+        height: 10vh;
+        overflow: hidden;
+        padding: 3vh 0 3vh 0;
+        text-align: right;
+        vertical-align: middle;
+        & input {
+            font-size: 1rem;
+            height: 2rem;
+            padding: 0.5rem;
+            width: 12rem;
+        }
+        &-cog {
+            height: 1.5rem;
+            margin: 0.5rem 1rem -0.4rem 1rem;
+            width: 1.5rem;
+        }
+    }
+    &__main {
+        font-size: 1rem;
+        height: 89.9vh;
+        overflow: hidden;
+        &-list {
+            background-color: white;
+            float: left;
+            height: 100%;
+            padding: 2.5rem;
+            width: 58%;
+            overflow-y: scroll;
+        }
+        &-info {
+            border-left: 2px solid $siderbar-colour;
+            height: 100%;
+            width: 42%;
+            float: left;
+            &-contact {
+                background-color: white;
+                height: 48%;
+                text-align: left;
+                vertical-align: middle;
+                & ul {
+                    margin: 4rem 2rem;
+                    overflow: auto;
+                    padding: 0;
+                    & li {
+                        list-style: none;
+                        padding: 1rem 0;
+                        & div:last-child {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            &-photo {
+                background-color: $primary-green-light;
+                height: 52%;
+                padding: 3rem 1rem;
+                text-align: center;
+                & img {
+                    border: 2px solid white;
+                    border-radius: 50%;
+                    margin-bottom: 1.5rem;
+                    object-fit: cover;
+                    overflow: auto;
+                    vertical-align: middle;
+                    max-width: $main-photo-size;
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
+.row {
+    font-size: 0;
+    margin: 0;
+    min-width: calc(3 * $list-photo-size);
+    padding: 0;
+}
+
+.column{
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 1rem 0;
+    vertical-align: middle;
+    width: 45%;
+    & img {
+        border-radius:50%;
+        float: left;
+        height: $list-photo-size;
+        object-fit: cover;
+        overflow: auto;
+        width: $list-photo-size;
+    }
+    &__username {
+        padding: 0.5rem 0 0.5rem 1rem;
+        overflow: hidden;
+        margin: 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
