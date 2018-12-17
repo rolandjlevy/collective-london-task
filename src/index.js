@@ -1,4 +1,4 @@
-require('./base.scss');
+require('./styles/base.scss');
 
 const baseUrl = "https://randomuser.me/api/";
 const usersList = document.querySelector(".users-list");
@@ -18,17 +18,30 @@ const animationSetting = {
     easing: 'cubic-bezier(0.42, 0, 0.58, 1)'
 }
 
+function getViewportSize () {
+    return window.innerWidth < 768 ? 'mobile' : 'desktop';
+}
+
+window.addEventListener('resize', event => {
+    // if (getViewportSize() === 'desktop') {
+    //      sidebar.style.display = "initial";
+    // } else {
+    //     if (sidebar.style.display !== "none" ) {
+    //         sidebar.style.display = "none";
+    //     }
+    // }
+});
+
 sidebarClose.addEventListener('click', event => {	
     event.preventDefault();
-    closeSidebar();
-    // sidebar.style.left = '-1000px';
-    // sidebar.style.display = "none";
+    sidebar.style.display = "none";
+    // closeSidebar();
 });
 
 menuIcon.addEventListener('click', event => {	
     event.preventDefault();
     sidebar.style.display = "initial";
-    openSidebar();
+    // openSidebar();
 });
 
 usersList.addEventListener('click', event => {	
