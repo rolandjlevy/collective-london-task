@@ -1,32 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Collective London</title>
+  <meta name="language" content="en" />
+  <meta name="description" content="Collective London, Random User API Task" />
+  <meta name="keywords" content="randomuser, random, user, randomuser.me, api" />
+  <title>Collective London - Random User API Task</title>
 </head>
 
 <body>
 
   <div class="wrapper">
     <nav class="sidebar">
+        <div href="#" class="sidebar__close">
+          x
+        </div>
       <div class="sidebar__user-photo">
         <img src="../static/images/placeholder.png" alt="Photo of selected user">
-        <h4></h4>
-        <h4></h4>
+        <h2></h2>
+        <h2></h2>
       </div>
-      <ul>
-        <li>Home</li>
-        <li>Blog</li>
-        <li>Community</li>
-        <li>Contest</li>
-        <li>About</li>
-        <li>Contact</li>
+      <ul class="sidebar__list">
+          <li class="sidebar__list-item">Home</li>
+          <li class="sidebar__list-item">Blog</li>
+          <li class="sidebar__list-item">Community</li>
+          <li class="sidebar__list-item">Contest</li>
+          <li class="sidebar__list-item">About</li>
+          <li class="sidebar__list-item">Contact</li>
       </ul>
     </nav>
     <div class="content">
       <header class="content__header">
+        <div href="#" class="content__header-menu">
+          burger
+        </div>
         <form class="search-form">
           <label for="search-input">
             <input type="text" id="search-input" class="search-input" name="search-input" placeholder="&#128269; Search by name">
@@ -36,7 +47,7 @@
       </header>
       <main class="content__main">
         <section class="content__main-list">
-          <h3>Users</h3>
+          <h1>Users</h1>
           <p>
             If you want to get contact information of a specific user, just select a group and then select the user from the list below
           </p>

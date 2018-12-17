@@ -1,8 +1,9 @@
-$primary-green-light: rgb(0, 187, 211) !default;
-$primary-green-dark:rgb(69, 89, 99) !default;
+$primary-blue-light: rgb(0, 187, 211) !default;
+$primary-blue-dark:rgb(69, 89, 99) !default;
 $siderbar-colour:rgb(205, 215, 219) !default;
 $main-photo-size: 240px;
 $sidebar-photo-size: 140px;
+$sidebar-size: 200px;
 $list-photo-size: 45px;
 $text-colour: #455A64;
 
@@ -15,7 +16,7 @@ $text-colour: #455A64;
 html {
     box-sizing: border-box;
     color: $text-colour;
-    font-family: 'Myriad Pro', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Myriad Pro', 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
     height: 100%;
     margin: 0;
     overflow: auto;
@@ -36,24 +37,39 @@ body {
     padding: 0;
 }
 
-h3, h4, h5 {
+h1, h2, h3 {
     margin: 0;
     padding: 0.5rem 0 0 0;
     font-weight: normal;
 }
 
-h3 {
+h1 {
     font-size: 1.5rem;
 }
 
-h4 {
+h2 {
     color: white;
     font-size: 1.2rem;
 }
 
-h5 {
+h3 {
     color: white;
     font-size: 1rem;
+}
+
+@keyframes slide {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }	
+}
+
+@keyframes slide-sidebar {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }	
 }
 
 input[type=text]{
@@ -62,7 +78,6 @@ input[type=text]{
 }
 
 .nationality {
-    display: inline;
     overflow: auto;
     float: left;
     padding-right: 0.5rem;
@@ -83,8 +98,8 @@ input[type=text]{
 }
 
 dialog {
-    background-color: $primary-green-light;
-    border: 1px solid $primary-green-dark;
+    background-color: $primary-blue-light;
+    border: 1px solid $primary-blue-dark;
     width: 50%;
     height: 50%;
     z-index: 5;
@@ -100,82 +115,88 @@ dialog {
 
 .wrapper {
     font-size: 0;
-    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100vw;
+    overflow: hidden;
+    position: relative;
 }
 
 .sidebar {
-    background-color: $primary-green-dark;
-    display: inline-block;
+    background-color: $primary-blue-dark;
+    display: none;
+    float: left;
     height: 100vh;
-    margin: 0;
-    min-width: calc($sidebar-photo-size + 2rem);
+    margin: 0 auto;
+    opacity: 1;
     padding: 0;
+    position: absolute;
     text-align: center;
-    width: 17vw;
+    width: $sidebar-size; // width: 17vw;
+    &__close {
+        background-color: rgb(115, 154, 173);
+        color: white;
+        cursor: pointer;
+        float: right;
+        font-size: 1.5rem;
+        font-weight: 400;
+        opacity: 0.6;
+        padding: 0.2rem 0.5rem;
+        &:hover {
+            opacity: 1;
+        }
+    }
     &__user-photo img {
         border: 2px solid white;
         border-radius: 50%;
-        margin: 2rem 0 1rem 0;
+        margin: 2rem 0 1rem 1.5rem;
         max-width: $sidebar-photo-size;
         object-fit: cover;
         overflow: auto;
         vertical-align: top;
         width: 90%;
     }
-    & ul {
+    &__list{ 
         font-size: 1rem;
         overflow: auto;
-        margin-top: 1rem;
+        margin: 0 auto;
         padding: 0;
+        padding-top: 1rem;
+        text-align: left;
+        width: $sidebar-size;
         & img {
             height: 16px;
             width: 16px;
         }
-        & li {
+        &-item {
             color: white;
             list-style: none;
             padding: 1rem 0 0 2rem;
             text-align: left;
-        }
-        & li:before {
-            background-size: contain;
-            background-repeat: no-repeat;
-            content: '';
-            display: inline-block;
-            height: 16px;
-            padding: 0 1.5rem 0 1rem;
-         }
-        & li:first-child:before  { 
-            background-image: url("/static/images/home-icon.png"); 
-        }
-        & li:nth-child(2):before { 
-            background-image: url("/static/images/note-icon.png"); 
-        }
-        & li:nth-child(3):before { 
-            background-image: url("/static/images/users-icon.png"); 
-        }
-        & li:nth-child(4):before { 
-            background-image: url("/static/images/trophy-icon.png"); 
-        }
-        & li:nth-child(5):before { 
-            background-image: url("/static/images/info-icon.png"); 
-        }
-        & li:nth-child(6):before { 
-            background-image: url("/static/images/email-icon.png"); 
+            &:before {
+                background-size: contain;
+                background-repeat: no-repeat;
+                content: '';
+                display: inline-block;
+                height: 16px;
+                padding: 0 1.5rem 0 1rem;
+            }
+            &:first-child:before  { background-image: url("/static/images/home-icon.png"); }
+            &:nth-child(2):before { background-image: url("/static/images/note-icon.png"); }
+            &:nth-child(3):before { background-image: url("/static/images/users-icon.png"); }
+            &:nth-child(4):before { background-image: url("/static/images/trophy-icon.png"); }
+            &:nth-child(5):before { background-image: url("/static/images/info-icon.png"); }
+            &:nth-child(6):before { background-image: url("/static/images/email-icon.png"); }
         }
     }
 }
 
 .content {
-    display: inline-block;
     font-size: 0;
     margin: 0;
     padding: 0;
     vertical-align: top;
-    width: 82.9vw;
+    width: auto; // width: 82.9vw;
+    overflow: hidden;
     &__header {
         background-color: $siderbar-colour;
         font-size: 1rem;
@@ -184,6 +205,11 @@ dialog {
         padding: 3vh 0 3vh 0;
         text-align: right;
         vertical-align: middle;
+        &-menu {
+            float:left;
+            margin: 0.5rem 1rem -0.4rem 1rem;
+            display: initial;
+        }
         & input {
             font-size: 1rem;
             height: 2rem;
@@ -210,30 +236,14 @@ dialog {
         }
         &-info {
             border-left: 2px solid $siderbar-colour;
-            height: 100%;
-            width: 42%;
             float: left;
-            &-contact {
-                background-color: white;
-                height: 48%;
-                text-align: left;
-                vertical-align: middle;
-                & ul {
-                    margin: 4rem 2rem;
-                    overflow: auto;
-                    padding: 0;
-                    & li {
-                        list-style: none;
-                        padding: 1rem 0;
-                        & div:last-child {
-                            font-weight: bold;
-                        }
-                    }
-                }
-            }
+            height: auto; // height: 100%;
+            overflow: hidden;
+            // overflow-y: scroll;
+            width: 42%;
             &-photo {
-                background-color: $primary-green-light;
-                height: 52%;
+                background-color: $primary-blue-light;
+                height: 450px; // height: 52%;
                 padding: 3rem 1rem;
                 text-align: center;
                 & img {
@@ -245,6 +255,25 @@ dialog {
                     vertical-align: middle;
                     max-width: $main-photo-size;
                     width: 90%;
+                }
+            }
+            &-contact {
+                background-color: white;
+                height: auto; // height: 48%;
+                overflow: hidden;
+                text-align: left;
+                vertical-align: middle;
+                & ul {
+                    margin: 3rem 2rem;
+                    overflow: auto;
+                    padding: 0;
+                    & li {
+                        list-style: none;
+                        padding: 1rem 0;
+                        & div:last-child {
+                            font-weight: bold;
+                        }
+                    }
                 }
             }
         }
@@ -283,6 +312,29 @@ dialog {
         margin: 0;
         &:hover {
             text-decoration: underline;
+        }
+    }
+}
+
+// Viewport breakpoint: 768px
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: initial;
+        position: relative;
+        &__close {
+            display: none;
+            opacity: 0;
+        }
+        &__user-photo img {
+            margin: 2rem 0 1rem 0;
+        }
+    }
+    .content {
+        &__header {
+            &-menu {
+                display: none;
+            }
         }
     }
 }
