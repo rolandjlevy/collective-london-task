@@ -131,7 +131,7 @@ dialog {
     padding: 0;
     position: absolute;
     text-align: center;
-    width: $sidebar-size; // width: 17vw;
+    width: $sidebar-size; 
     &__close {
         background-color: rgb(115, 154, 173);
         color: white;
@@ -195,7 +195,7 @@ dialog {
     margin: 0;
     padding: 0;
     vertical-align: top;
-    width: auto; // width: 82.9vw;
+    width: auto; 
     overflow: hidden;
     &__header {
         background-color: $siderbar-colour;
@@ -237,18 +237,17 @@ dialog {
             height: 100%;
             padding: 2.5rem;
             width: 58%;
-            overflow-y: scroll;
+            overflow-y: auto;
         }
         &-info {
             border-left: 2px solid $siderbar-colour;
             float: left;
-            height: auto; // height: 100%;
-            overflow: hidden;
-            // overflow-y: scroll;
+            height: 100%; 
+            overflow-y: auto;
             width: 42%;
             &-photo {
                 background-color: $primary-blue-light;
-                height: 400px; // height: 52%;
+                height: 400px; 
                 padding: 3rem 1rem;
                 text-align: center;
                 & img {
@@ -264,13 +263,12 @@ dialog {
             }
             &-contact {
                 background-color: white;
-                height: auto; // height: 48%;
+                height: auto; 
                 overflow: hidden;
                 text-align: left;
                 vertical-align: middle;
                 & ul {
                     margin: 3rem 2rem;
-                    overflow: auto;
                     padding: 0;
                     & li {
                         list-style: none;
@@ -343,7 +341,6 @@ dialog {
         }
         &__main {
             &-info {
-                height: auto;
                 &-photo {
                     height: 450px;
                 }
