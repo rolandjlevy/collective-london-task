@@ -2,12 +2,32 @@ require('./base.scss');
 
 const baseUrl = "https://randomuser.me/api/";
 const usersList = document.querySelector(".users-list");
+const mainInfo = document.querySelector(".content__main-info");
+const sidebar = document.querySelector(".sidebar");
+const sidebarClose = document.querySelector(".sidebar__close");
 const sidebarPhoto = document.querySelector(".sidebar__user-photo");
 const nationalityForm = document.querySelector(".nationality-form");
+const menuIcon = document.querySelector(".content__header-menu");
 const searchForm = document.querySelector(".search-form");
-const mainInfo = document.querySelector(".content__main-info");
 const dialog = document.querySelector('#dialog');
 let users = [];
+
+const animationSetting = { 
+    duration: 600,
+    iterations: 1,
+    easing: 'cubic-bezier(0.42, 0, 0.58, 1)'
+}
+
+sidebarClose.addEventListener('click', event => {	
+    event.preventDefault();
+    closeSidebar();
+});
+
+menuIcon.addEventListener('click', event => {	
+    event.preventDefault();
+    sidebar.style.display = "initial";
+    openSidebar();
+});
 
 usersList.addEventListener('click', event => {	
     event.preventDefault();
@@ -99,35 +119,62 @@ function selectUser (id) {
         sidebarPhoto.childNodes[5].textContent = sentenceCase(users[id].name.last);
 }
 
-function animateUser() {
+/////////////////
+// Animations
+/////////////////
+
+function safariFirefox () {
     const isSafari = /^((?!chrome).)*safari/i.test(navigator.userAgent);
     const isFirefox = /^((?!chrome).)*firefox/i.test(navigator.userAgent); 
-    if (isSafari || isFirefox) {
+    return isSafari || isFirefox;
+}
+
+function openSidebar() {
+    if (safariFirefox()) {
+        sidebar.style.animation = 'slide-sidebar 300ms';
+    } else {
+        sidebar.animate(
+            [
+                { transform: 'translateX(-100%)', opacity:0 }, 
+                { transform: 'translateX(0)', opacity:1 }
+            ], 
+            animationSetting
+        );
+    }
+}
+
+function closeSidebar() {
+    if (safariFirefox()) {
+        // sidebar.style.animation = 'slide-sidebar 300ms';
+    } else {
+        sidebar.animate(
+            [
+                { transform: 'translateX(0)', opacity:1 }, 
+                { transform: 'translateX(-100%)', opacity:0 }
+            ], 
+            animationSetting
+        );
+    }
+}
+
+function animateUser() {
+    if (safariFirefox()) {
         mainInfo.style.animation = 'slide 300ms';
         sidebarPhoto.style.animation = 'fade 300ms';
     } else {
-        console.log('pc');
         mainInfo.animate(
             [
                 { transform: 'translateX(100%)', opacity:0 }, 
                 { transform: 'translateX(0)', opacity:1 }
             ], 
-            { 
-                duration: 600,
-                iterations: 1,
-                easing: 'cubic-bezier(0.42, 0, 0.58, 1)'
-            }
+            animationSetting
         );
         sidebarPhoto.animate(
             [
                 { opacity:0 }, 
                 { opacity:1 }
             ], 
-            { 
-                duration: 600,
-                iterations: 1,
-                easing: 'cubic-bezier(0.42, 0, 0.58, 1)'
-            }
+            animationSetting
         );
     }
 }

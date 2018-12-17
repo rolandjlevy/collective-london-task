@@ -6,7 +6,11 @@ Following telephone interview on Thu 13 Dec 2018. Started on Sat 15 Dec
 
 ### Cross-browser compatibilty
 - Made animation cross-browser compatible
-- Have a problem running the API in Firefox
+- The API can't run in Firefox due to a bug in Firefox:
+- Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://randomuser.me/api/?inc=name,location,cell,email,picture,id,dob&results=20&nat=AU. 
+(Reason: CORS request did not succeed).
+TypeError: "NetworkError when attempting to fetch resource."
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed?utm_source=devtools&utm_medium=firefox-cors-errors&utm_campaign=default-
 
 ### API documentation: 
 - https://randomuser.me/documentation#howto
