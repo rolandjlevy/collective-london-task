@@ -21,6 +21,8 @@ const animationSetting = {
 sidebarClose.addEventListener('click', event => {	
     event.preventDefault();
     closeSidebar();
+    // sidebar.style.left = '-1000px';
+    // sidebar.style.display = "none";
 });
 
 menuIcon.addEventListener('click', event => {	
