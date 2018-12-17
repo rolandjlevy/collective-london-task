@@ -3,6 +3,11 @@
 ## Technical test
 Following telephone interview on Thu 13 Dec 2018. Started on Sat 15 Dec
 
+
+### Cross-browser compatibilty
+- Made animation cross-browser compatible
+- Have a problem running the API in Firefox
+
 ### API documentation: 
 - https://randomuser.me/documentation#howto
 
