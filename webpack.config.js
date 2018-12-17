@@ -17,6 +17,12 @@ module.exports = {
       { from: path.resolve(__dirname, 'src/index.html'), to: path.resolve(__dirname, 'dist/index.html') }
     ])
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    watchContentBase: true,
+    compress: true,
+    port: 9000
+  },
   module: {
     rules: [
       {
