@@ -1,0 +1,27 @@
+.wrapper {
+    height: auto;
+    overflow: hidden;
+ }
+ 
+ .sidebar {
+     width: 300px;
+     float: left;
+     background: #aafed6;
+ }
+ 
+ .content {
+     /* the next props are meant to keep this block independent from the other floated one */
+     width: auto;
+     overflow: hidden;
+     background: beige;
+ }
+ 
+ .content-1 {
+   width: 58%;
+   float: left;
+ }
+ 
+ .content-2 {
+   width: 42%;
+   float:right;
+ }

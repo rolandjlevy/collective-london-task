@@ -75,8 +75,8 @@ function selectUser (id) {
     mainInfo.innerHTML =
         `<div class="content__main-info-photo">
             <img src="${users[id].picture.large}">
-            <h4>${sentenceCase(users[id].name.first)} ${sentenceCase(users[id].name.last)}</h4>
-            <h5>DOB: ${users[id].dob.date}</h5>
+            <h2>${sentenceCase(users[id].name.first)} ${sentenceCase(users[id].name.last)}</h4>
+            <h3>State: ${sentenceCase(users[id].location.state)}</h5>
         </div>
         <div class="content__main-info-contact">
             <ul>
@@ -94,7 +94,6 @@ function selectUser (id) {
                 </li>
             </ul>
         </div>`;
-        console.log({sidebarPhoto});
         sidebarPhoto.childNodes[1].attributes[0].value = users[id].picture.large; 
         sidebarPhoto.childNodes[3].textContent = sentenceCase(users[id].name.first);
         sidebarPhoto.childNodes[5].textContent = sentenceCase(users[id].name.last);

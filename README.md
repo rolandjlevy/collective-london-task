@@ -31,3 +31,7 @@ Following telephone interview on Thu 13 Dec 2018. Started on Sat 15 Dec
     // Firefox: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:64.0) Gecko/20100101 Firefox/64.0
     // Safari:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.2 Safari/605.1.15
     // Chrome:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36   (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36
+
+### CORS issue with Firefox 
+- Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://randomuser.me/api/?inc=name,location,cell,email,picture,id,dob&results=20&nat=AU. (Reason: CORS request did not succeed).
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed

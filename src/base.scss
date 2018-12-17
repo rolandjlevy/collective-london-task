@@ -1,8 +1,9 @@
-$primary-green-light: rgb(0, 187, 211) !default;
-$primary-green-dark:rgb(69, 89, 99) !default;
+$primary-blue-light: rgb(0, 187, 211) !default;
+$primary-blue-dark:rgb(69, 89, 99) !default;
 $siderbar-colour:rgb(205, 215, 219) !default;
 $main-photo-size: 240px;
 $sidebar-photo-size: 140px;
+$sidebar-size: 200px;
 $list-photo-size: 45px;
 $text-colour: #455A64;
 
@@ -15,7 +16,7 @@ $text-colour: #455A64;
 html {
     box-sizing: border-box;
     color: $text-colour;
-    font-family: 'Myriad Pro', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Myriad Pro', 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
     height: 100%;
     margin: 0;
     overflow: auto;
@@ -72,7 +73,6 @@ input[type=text]{
 }
 
 .nationality {
-    display: inline;
     overflow: auto;
     float: left;
     padding-right: 0.5rem;
@@ -93,8 +93,8 @@ input[type=text]{
 }
 
 dialog {
-    background-color: $primary-green-light;
-    border: 1px solid $primary-green-dark;
+    background-color: $primary-blue-light;
+    border: 1px solid $primary-blue-dark;
     width: 50%;
     height: 50%;
     z-index: 5;
@@ -110,21 +110,19 @@ dialog {
 
 .wrapper {
     font-size: 0;
-    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100vw;
+    overflow: hidden;
 }
 
 .sidebar {
-    background-color: $primary-green-dark;
-    display: inline-block;
+    background-color: $primary-blue-dark;
+    float: left;
     height: 100vh;
-    margin: 0;
-    min-width: calc($sidebar-photo-size + 2rem);
+    margin: 0 auto;
     padding: 0;
     text-align: center;
-    width: 17vw;
+    width: $sidebar-size; // width: 17vw;
     &__user-photo img {
         border: 2px solid white;
         border-radius: 50%;
@@ -135,11 +133,14 @@ dialog {
         vertical-align: top;
         width: 90%;
     }
-    & ul {
+    &__list{ 
         font-size: 1rem;
         overflow: auto;
-        margin-top: 1rem;
+        margin: 0 auto;
         padding: 0;
+        padding-top: 1rem;
+        text-align: left;
+        width: $sidebar-size;
         & img {
             height: 16px;
             width: 16px;
@@ -180,12 +181,12 @@ dialog {
 }
 
 .content {
-    display: inline-block;
     font-size: 0;
     margin: 0;
     padding: 0;
     vertical-align: top;
-    width: 82.9vw;
+    width: auto; // width: 82.9vw;
+    overflow: hidden;
     &__header {
         background-color: $siderbar-colour;
         font-size: 1rem;
@@ -220,30 +221,14 @@ dialog {
         }
         &-info {
             border-left: 2px solid $siderbar-colour;
-            height: 100%;
-            width: 42%;
             float: left;
-            &-contact {
-                background-color: white;
-                height: 48%;
-                text-align: left;
-                vertical-align: middle;
-                & ul {
-                    margin: 4rem 2rem;
-                    overflow: auto;
-                    padding: 0;
-                    & li {
-                        list-style: none;
-                        padding: 1rem 0;
-                        & div:last-child {
-                            font-weight: bold;
-                        }
-                    }
-                }
-            }
+            height: auto; // height: 100%;
+            overflow: hidden;
+            overflow-y: scroll;
+            width: 42%;
             &-photo {
-                background-color: $primary-green-light;
-                height: 52%;
+                background-color: $primary-blue-light;
+                height: 450px; // height: 52%;
                 padding: 3rem 1rem;
                 text-align: center;
                 & img {
@@ -255,6 +240,25 @@ dialog {
                     vertical-align: middle;
                     max-width: $main-photo-size;
                     width: 90%;
+                }
+            }
+            &-contact {
+                background-color: white;
+                height: auto; // height: 48%;
+                overflow: hidden;
+                text-align: left;
+                vertical-align: middle;
+                & ul {
+                    margin: 3rem 2rem;
+                    overflow: auto;
+                    padding: 0;
+                    & li {
+                        list-style: none;
+                        padding: 1rem 0;
+                        & div:last-child {
+                            font-weight: bold;
+                        }
+                    }
                 }
             }
         }
