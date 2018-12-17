@@ -8,8 +8,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
-    "test": "npm test"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@types/node": "^10.12.15",
