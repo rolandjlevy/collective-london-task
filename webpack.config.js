@@ -20,7 +20,7 @@ module.exports = {
     // copies files from source to destination
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, 'assets'), to: path.resolve(__dirname, 'dist') },
-      { from: path.resolve(__dirname, 'src/index.html'), to: path.resolve(__dirname, 'dist/index.html') }
+      { from: path.resolve(__dirname, 'app/index.html'), to: path.resolve(__dirname, 'dist/index.html') }
     ])
   ],
   // create devServer for dev environment: http://localhost:9000/
