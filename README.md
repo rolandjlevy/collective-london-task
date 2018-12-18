@@ -1,7 +1,3 @@
-# Collective London
-
-## Technical test
-Following telephone interview on Thu 13 Dec 2018. Started on Sat 15 Dec
 
 ### Cross-browser compatibilty
 - Made animation cross-browser compatible
@@ -43,3 +39,45 @@ TypeError: "NetworkError when attempting to fetch resource."
 ### CORS issue with Firefox 
 - Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://randomuser.me/api/?inc=name,location,cell,email,picture,id,dob&results=20&nat=AU. (Reason: CORS request did not succeed).
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed
+
+
+
+Set up environment
+	1. Task: install a task runner to compile non-code assets such as SASS, images and fonts
+	Chosen webpack to bundle JS dependancies. 
+	Could consider Gulp or Grunt
+	https://da-14.com/blog/gulp-vs-grunt-vs-webpack-comparison-build-tools-task-runners
+	https://www.oxfordcc.co.uk/news/compiling-sass-gulp-visual-studio
+	https://deliciousbrains.com/grunt-vs-gulp-battle-build-tools/
+	https://semaphoreci.com/community/tutorials/getting-started-with-grunt-js
+	
+	
+	2. Use Babel for transpiling ES6 to JS
+	https://css-tricks.com/transpiling-es6/
+
+https://github.com/RandomAPI/Randomuser.me-Node
+
+
+Environment installation 
+Environment
+Use a task runner to compile your SASS 
+https://www.iambacon.co.uk/blog/getting-started-with-grunt-sass-and-task-runner-explorer-visual-studio
+
+compile SASS using Grunt
+https://gruntjs.com/getting-started
+http://ryanchristiani.com/getting-started-with-grunt-and-sass/
+
+
+API
+https://github.com/RandomAPI/Randomuser.me-Node
+
+HTML5
+Gulp
+Git
+Handlebars
+ES6: restructuring assignment, default Params, arrow functions, function as a const
+
+Styling
+BEM
+SASS
+Responsive with viewport breakpoints
