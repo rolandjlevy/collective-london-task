@@ -1,8 +1,8 @@
 // webpack.config.js
 const path = require('path');
-// load module that remove previous bundled files
+// load module that remove previous build files
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// load module that copies build files
+// load module that copies build files into dist folder
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {

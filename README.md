@@ -34,13 +34,14 @@
 + app folder is for development and dist folder is for deployment
 + Please see comments in webpack.config.js for a general explanation of the build process
 
-### Challenges and areas for improvement
-+ The main challenge was creating the responsiveness without Flexbox or Grid.
-+ I encountered bugs when trying to animate the closing of the sidebar in CSS.
-+ Creating this app with a UI library like React would mean better readability, easier maintainability and taking advantage of components which maximizes reusability and optimises the architecture. There are more benefits of using  The virtual DOM would improve performance. 
-
 ### Compatibility and standards compliance
 + See results in Lighthouse audit reports of the mobile and desktop views
 + The app was tested in Chrome and Safari 
 + Animations are cross-browser compatible
 + The API would't run in Firefox due to this error: [CORS request did not succeed](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed)
+
+### Challenges and areas for improvement
++ The main challenge was creating the responsiveness without Flexbox or Grid. It was a good opportunity to improve my CSS skills.
++ I would have liked to have gone deeper into Sass and  explored features like Saas functions, mixins and loops.
++ I encountered bugs when trying to animate the closing of the sidebar in CSS.
++ Creating this app with a UI library like React would mean better readability, easier maintainability and taking advantage of components which maximizes reusability and optimises the architecture. There are more benefits of using  The virtual DOM would improve performance. 

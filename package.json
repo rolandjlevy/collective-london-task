@@ -25,6 +25,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -35,12 +36,16 @@
     "type": "git",
     "url": "git+https://rolandjlevy/collective-london-task.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolandjlevy/collective-london-task/issues"
+  },
   "babel": {
     "presets": [
       "@babel/preset-react",
       "@babel/preset-env"
     ]
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
