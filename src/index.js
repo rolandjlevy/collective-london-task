@@ -19,19 +19,15 @@ function getViewportSize() {
 }
 
 window.addEventListener('resize', event => {
-    // if (getViewportSize() === 'desktop') {
-    //      sidebar.style.display = "initial";
-    // } else {
-    //     if (sidebar.style.display !== "none" ) {
-    //         sidebar.style.display = "none";
-    //     }
-    // }
+    if (getViewportSize() === 'desktop' && sidebar.style.display === "none") {
+        sidebar.style.display = "initial";
+    }
 });
 
 sidebarClose.addEventListener('click', event => {
     event.preventDefault();
     sidebar.style.display = "none";
-    closeSidebar(sidebar, );
+    // closeSidebar(sidebar, );
 });
 
 menuIcon.addEventListener('click', event => {
