@@ -1,5 +1,7 @@
 @import 'base.scss';
 
+// .row and .column create a table layout of rows and columns for users resulting from each API fetch
+
 .row {
     font-size: 0;
     margin: 0;
@@ -11,7 +13,7 @@
     cursor: pointer;
     display: inline-block;
     font-size: 1rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     vertical-align: middle;
     width: 100%;
     & img {
@@ -38,6 +40,6 @@
 
 @media (min-width: 768px) {
     .column{
-        width: 50%;
+        width: 50%; 
     }
 }

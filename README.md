@@ -3,7 +3,6 @@
 ## Technical test
 Following telephone interview on Thu 13 Dec 2018. Started on Sat 15 Dec
 
-
 ### Cross-browser compatibilty
 - Made animation cross-browser compatible
 - The API can't run in Firefox due to a bug in Firefox:

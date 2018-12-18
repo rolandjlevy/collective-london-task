@@ -7,3 +7,7 @@ export const sentenceCase = str => {
             return word.join("");
         }).join(" ");
 }
+
+export const getViewportSize = () => {
+    return window.innerWidth < 768 ? 'mobile' : 'desktop';
+}
