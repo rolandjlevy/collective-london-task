@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="language" content="en" />
+  <meta name="description" content="Collective London, Random User API Task" />
+  <meta name="keywords" content="randomuser, random, user, randomuser.me, api" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <title>Collective London - Random User API Task</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <nav class="sidebar">
+        <div href="#" class="sidebar__close">
+            <i class="fas fa-times"></i>
+        </div>
+      <div class="sidebar__user-photo">
+        <img src="images/placeholder.png" alt="Photo of selected user">
+        <h2></h2>
+        <h2></h2>
+      </div>
+      <ul class="sidebar__list">
+          <li class="sidebar__list-item">Home</li>
+          <li class="sidebar__list-item">Blog</li>
+          <li class="sidebar__list-item">Community</li>
+          <li class="sidebar__list-item">Contest</li>
+          <li class="sidebar__list-item">About</li>
+          <li class="sidebar__list-item">Contact</li>
+      </ul>
+    </nav>
+    <div class="content">
+      <header class="content__header">
+        <div href="#" class="content__header-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <form class="search-form">
+          <label for="search-input">
+            <input type="text" id="search-input" class="search-input" name="search-input" placeholder="&#128269; Search by name">
+            <div class="content__header-cog"></div>
+          </label>
+        </form>
+      </header>
+      <main class="content__main">
+        <section class="content__main-list">
+          <h1>Users</h1>
+          <p>
+            For contact information of a specific user, select a group and then select the user from the list below
+          </p>
+          <p class="padding-v">
+            <div class="nationality">Select by nationality:</div><form class="nationality-form">
+              <select>
+                <option value="any" selected>Any</option>
+                <option value="AU">Australian</option>
+                <option value="BR">Brazilian</option>
+                <option value="GB">British</option>
+                <option value="CA">Canadian</option>
+                <option value="DK">Danish</option>
+                <option value="NL">Dutch</option>
+                <option value="FI">Finish</option>
+                <option value="FR">French</option>
+                <option value="DE">German</option>
+                <option value="IE">Irish</option>
+                <option value="CH">Swiss</option>
+                <option value="TR">Turkish</option>
+              </select>
+            </form>
+          </p>
+          <div class="users-list"></div>
+        </section>
+        <section class="content__main-info"></section>
+      </main>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="bundle.js"></script>
+</html>

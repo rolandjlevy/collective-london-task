@@ -1,0 +1,93 @@
+$primary-blue-light: rgb(0, 187, 211);
+$primary-blue-dark:rgb(69, 89, 99);
+$sidebar-colour:rgb(205, 215, 219);
+$grey-light: rgb(248, 248, 248);
+$main-photo-size: 240px;
+$sidebar-photo-size: 140px;
+$sidebar-size: 200px;
+$list-photo-size: 45px;
+$text-colour: #455A64;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    color: $text-colour;
+    font-family: 'Myriad Pro', 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: white;
+    box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.5rem;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0.5rem 0 0 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    color: white;
+    font-size: 1.2rem;
+}
+
+h3 {
+    color: white;
+    font-size: 1rem;
+}
+
+input[type=text]{
+    border-radius: 1rem;
+    border:none;
+}
+
+.nationality {
+    overflow: auto;
+    float: left;
+    padding-right: 0.5rem;
+}
+
+.nationality-form select {
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: white;
+}
+
+.padding-v {
+    padding: 0.5rem 0 0.5rem 0;
+    margin:0;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.fa-times {
+    font-size: 1rem;
+}
+
+.fa-bars {
+    font-size: 1.5rem;
+}
