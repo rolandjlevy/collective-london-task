@@ -1,4 +1,7 @@
-import './styles/base.scss'
+import './styles/base.scss';
+import './styles/users.scss';
+import './styles/keyframes.scss';
+
 import { openSidebar, closeSidebar, animateUser } from './animations'
 import { sentenceCase } from './utilities';
 

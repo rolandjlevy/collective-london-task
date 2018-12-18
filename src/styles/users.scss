@@ -1,0 +1,43 @@
+@import 'base.scss';
+
+.row {
+    font-size: 0;
+    margin: 0;
+    min-width: calc(3 * $list-photo-size);
+    padding: 0;
+}
+
+.column{
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 1rem 0;
+    vertical-align: middle;
+    width: 100%;
+    & img {
+        border-radius: 50%;
+        float: left;
+        height: $list-photo-size;
+        object-fit: cover;
+        overflow: auto;
+        width: $list-photo-size;
+        transition: all .2s ease-in-out;
+        &:hover { 
+            transform: scale(1.3); 
+        }
+    }
+    &__username {
+        padding: 0.5rem 0 0.5rem 1rem;
+        overflow: hidden;
+        margin: 0 0 0 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .column{
+        width: 50%;
+    }
+}
