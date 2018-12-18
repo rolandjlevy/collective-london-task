@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   // entry point for webpack build
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, './app/index.js'),
   devtool: 'source-map',
   // build is output to dist/bundle.js
   output: {
