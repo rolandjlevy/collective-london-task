@@ -1,10 +1,4 @@
-/assets
-/node_modules
-/dist
-/static/bundle.js
-/static/bundle.js.map
+dist
+node_modules
+reference
 .DS_Store
-
-/dev-test-assets
-dev-test-assets.zip
-task-brief.pdf

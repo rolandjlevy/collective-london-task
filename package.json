@@ -7,12 +7,15 @@
     "node": "11.3.0"
   },
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "test": "npm test"
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
   },
   "dependencies": {
-    "@types/node": "^10.12.15"
+    "@types/node": "^10.12.15",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "file-loader": "^2.0.0",
+    "webpack-dev-server": "^3.1.10"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

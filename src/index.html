@@ -9,6 +9,7 @@
   <meta name="language" content="en" />
   <meta name="description" content="Collective London, Random User API Task" />
   <meta name="keywords" content="randomuser, random, user, randomuser.me, api" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Collective London - Random User API Task</title>
 </head>
 
@@ -17,10 +18,10 @@
   <div class="wrapper">
     <nav class="sidebar">
         <div href="#" class="sidebar__close">
-          x
+            <i class="fas fa-times"></i>
         </div>
       <div class="sidebar__user-photo">
-        <img src="../static/images/placeholder.png" alt="Photo of selected user">
+        <img src="images/placeholder.png" alt="Photo of selected user">
         <h2></h2>
         <h2></h2>
       </div>
@@ -36,12 +37,12 @@
     <div class="content">
       <header class="content__header">
         <div href="#" class="content__header-menu">
-          burger
+            <i class="fas fa-bars"></i>
         </div>
         <form class="search-form">
           <label for="search-input">
             <input type="text" id="search-input" class="search-input" name="search-input" placeholder="&#128269; Search by name">
-            <img class="content__header-cog" src="/static/images/cog-icon.png" alt="Search cog icon">
+            <div class="content__header-cog"></div>
           </label>
         </form>
       </header>
@@ -49,10 +50,10 @@
         <section class="content__main-list">
           <h1>Users</h1>
           <p>
-            If you want to get contact information of a specific user, just select a group and then select the user from the list below
+            For contact information of a specific user, select a group and then select the user from the list below
           </p>
           <p class="padding-v">
-            <div class="nationality">Select users by nationality:</div><form class="nationality-form">
+            <div class="nationality">Select by nationality:</div><form class="nationality-form">
               <select>
                 <option value="any" selected>Any</option>
                 <option value="AU">Australian</option>
@@ -70,9 +71,6 @@
               </select>
             </form>
           </p>
-            <dialog id="dialog" class="dialog-hide">
-              <h1>User info here </h1>
-            </dialog>
           <div class="users-list"></div>
         </section>
         <section class="content__main-info"></section>
@@ -80,5 +78,5 @@
     </div>
   </div>
 </body>
-<script type="text/javascript" src="./static/bundle.js"></script>
+<script type="text/javascript" src="bundle.js"></script>
 </html>

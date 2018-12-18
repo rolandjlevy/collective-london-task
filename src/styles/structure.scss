@@ -1,117 +1,4 @@
-$primary-blue-light: rgb(0, 187, 211) !default;
-$primary-blue-dark:rgb(69, 89, 99) !default;
-$siderbar-colour:rgb(205, 215, 219) !default;
-$main-photo-size: 240px;
-$sidebar-photo-size: 140px;
-$sidebar-size: 200px;
-$list-photo-size: 45px;
-$text-colour: #455A64;
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html {
-    box-sizing: border-box;
-    color: $text-colour;
-    font-family: 'Myriad Pro', 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
-    height: 100%;
-    margin: 0;
-    overflow: auto;
-    padding: 0;
-    scroll-behavior: smooth;
-    width: 100%;
-}
-
-body {
-    background-color: white;
-    box-sizing: border-box;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1rem;
-    height: 100vh;
-    letter-spacing: 0.03rem;
-    line-height: 1.5rem;
-    margin: 0;
-    padding: 0;
-}
-
-h1, h2, h3 {
-    margin: 0;
-    padding: 0.5rem 0 0 0;
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 1.5rem;
-}
-
-h2 {
-    color: white;
-    font-size: 1.2rem;
-}
-
-h3 {
-    color: white;
-    font-size: 1rem;
-}
-
-@keyframes slide {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }	
-}
-
-@keyframes slide-sidebar {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-}
-
-@keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1; }	
-}
-
-input[type=text]{
-    border-radius: 1rem;
-    border:none;
-}
-
-.nationality {
-    overflow: auto;
-    float: left;
-    padding-right: 0.5rem;
-}
-
-.nationality-form select {
-    font-size: 1rem;
-    padding: 0.5rem;
-}
-
-.padding-v {
-    padding: 0.5rem 0 0.5rem 0;
-    margin:0;
-}
-
-.center-align {
-    text-align: center;
-}
-
-dialog {
-    background-color: $primary-blue-light;
-    border: 1px solid $primary-blue-dark;
-    width: 50%;
-    height: 50%;
-    z-index: 5;
-}
-
-.dialog-show {
-    display: block;
-}
-
-.dialog-hide {
-    display: none;
-}
+@import 'base.scss';
 
 .wrapper {
     font-size: 0;
@@ -131,7 +18,7 @@ dialog {
     padding: 0;
     position: absolute;
     text-align: center;
-    width: $sidebar-size; // width: 17vw;
+    width: $sidebar-size; 
     &__close {
         background-color: rgb(115, 154, 173);
         color: white;
@@ -180,12 +67,12 @@ dialog {
                 height: 16px;
                 padding: 0 1.5rem 0 1rem;
             }
-            &:first-child:before  { background-image: url("/static/images/home-icon.png"); }
-            &:nth-child(2):before { background-image: url("/static/images/note-icon.png"); }
-            &:nth-child(3):before { background-image: url("/static/images/users-icon.png"); }
-            &:nth-child(4):before { background-image: url("/static/images/trophy-icon.png"); }
-            &:nth-child(5):before { background-image: url("/static/images/info-icon.png"); }
-            &:nth-child(6):before { background-image: url("/static/images/email-icon.png"); }
+            &:first-child:before  { background-image: url("../images/home-icon.png"); }
+            &:nth-child(2):before { background-image: url("../images/note-icon.png"); }
+            &:nth-child(3):before { background-image: url("../images/users-icon.png"); }
+            &:nth-child(4):before { background-image: url("../images/trophy-icon.png"); }
+            &:nth-child(5):before { background-image: url("../images/info-icon.png"); }
+            &:nth-child(6):before { background-image: url("../images/email-icon.png"); }
         }
     }
 }
@@ -195,10 +82,10 @@ dialog {
     margin: 0;
     padding: 0;
     vertical-align: top;
-    width: auto; // width: 82.9vw;
+    width: auto; 
     overflow: hidden;
     &__header {
-        background-color: $siderbar-colour;
+        background-color: $sidebar-colour;
         font-size: 1rem;
         height: 10vh;
         overflow: hidden;
@@ -206,9 +93,10 @@ dialog {
         text-align: right;
         vertical-align: middle;
         &-menu {
-            float:left;
-            margin: 0.5rem 1rem -0.4rem 1rem;
+            cursor: pointer;
             display: initial;
+            float:left;
+            margin: 0.5rem 1rem -0.4rem 1.5rem;
         }
         & input {
             font-size: 1rem;
@@ -220,30 +108,35 @@ dialog {
             height: 1.5rem;
             margin: 0.5rem 1rem -0.4rem 1rem;
             width: 1.5rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            content: '';
+            display: inline-block;
+            background-image: url('../images/cog-icon.png');
         }
     }
     &__main {
         font-size: 1rem;
-        height: 89.9vh;
-        overflow: hidden;
+        float:none;
+        clear:both;
         &-list {
             background-color: white;
+            border-bottom: 2px solid $sidebar-colour;
             float: left;
-            height: 100%;
-            padding: 2.5rem;
-            width: 58%;
-            overflow-y: scroll;
+            height: 400px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            width: auto;
         }
         &-info {
-            border-left: 2px solid $siderbar-colour;
+            border-left: 2px solid $sidebar-colour;
             float: left;
-            height: auto; // height: 100%;
-            overflow: hidden;
-            // overflow-y: scroll;
-            width: 42%;
+            height: auto;
+            overflow-y: auto;
+            width: 100%;
             &-photo {
                 background-color: $primary-blue-light;
-                height: 450px; // height: 52%;
+                height: 400px; 
                 padding: 3rem 1rem;
                 text-align: center;
                 & img {
@@ -259,13 +152,12 @@ dialog {
             }
             &-contact {
                 background-color: white;
-                height: auto; // height: 48%;
+                height: auto; 
                 overflow: hidden;
                 text-align: left;
                 vertical-align: middle;
                 & ul {
                     margin: 3rem 2rem;
-                    overflow: auto;
                     padding: 0;
                     & li {
                         list-style: none;
@@ -280,43 +172,7 @@ dialog {
     }
 }
 
-.row {
-    font-size: 0;
-    margin: 0;
-    min-width: calc(3 * $list-photo-size);
-    padding: 0;
-}
-
-.column{
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 1rem 0;
-    vertical-align: middle;
-    width: 45%;
-    & img {
-        border-radius: 50%;
-        float: left;
-        height: $list-photo-size;
-        object-fit: cover;
-        overflow: auto;
-        width: $list-photo-size;
-        transition: all .2s ease-in-out;
-        &:hover { 
-            transform: scale(1.3); 
-        }
-    }
-    &__username {
-        padding: 0.5rem 0 0.5rem 1rem;
-        overflow: hidden;
-        margin: 0;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-// Viewport breakpoint: 768px
+// viewport breakpoint at 768px
 
 @media (min-width: 768px) {
     .sidebar {
@@ -336,5 +192,19 @@ dialog {
                 display: none;
             }
         }
+        &__main {
+            height: 89.9vh;
+            overflow: hidden;
+            &-info {
+                height: 100%; 
+                width: 42%;
+            }
+            &-list {
+                height: 100%;
+                width: 58%;
+                overflow-y: auto;
+            }
+        }
     }
 }
+
