@@ -26,7 +26,7 @@
 + Used Sass to style the UI
 + Deployed to Heroku and created readme file
 
-### Build 
+### Build and deployment
 + Used Webpack to bundle JS files, Sass files and images
 + Used Babel to transpile JS code
 + App folder is for development and dist folder is for deployment
