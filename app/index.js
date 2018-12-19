@@ -1,4 +1,4 @@
-// import sass iles
+// import Sass files
 import './styles/base.scss';
 import './styles/structure.scss';
 import './styles/users.scss';

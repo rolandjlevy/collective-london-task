@@ -24,7 +24,7 @@
 + Created functionality for pulling user data from API, based on menu selection or search query
 + Enabled responsiveness for mobile and desktop views
 + Used Sass to style the UI
-+ Deployed to Heroku and created readme file
++ Prepared for deployment, wrote comments in JS files and created readme file
 
 ### Build and deployment
 + Used Webpack to bundle JS files, Sass files and images
