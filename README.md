@@ -2,6 +2,8 @@
 
 ## Technical test
 
+> [View the live demo on Heroku](https://collective-london-task-roland.herokuapp.com/)
+
 > [View the repo on Github](https://github.com/rolandjlevy/collective-london-task)
 
 ### Installation and set up
@@ -24,7 +26,8 @@
 + Created functionality for pulling user data from API, based on menu selection or search query
 + Enabled responsiveness for mobile and desktop views
 + Used Sass to style the UI
-+ Prepared for deployment, wrote comments in JS files and created readme file
++ Prepared for deployment and hosted on Heroku
++ Wrote comments in JS files and created readme file
 
 ### Build and deployment
 + Used Webpack to bundle JS files, Sass files and images
