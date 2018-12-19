@@ -43,4 +43,4 @@
 + I would have liked to have gone deeper into Sass and  explored features like Saas functions, mixins and loops.
 + The user experience could have been better on the mobile view. Loading the users' details into the info area below the list of users feels a bit clunky
 + I encountered bugs when trying to animate the closing of the sidebar in CSS.
-+ Creating this app with a UI library like React would mean better readability, easier maintainability and taking advantage of components which maximizes reusability and optimises the architecture. There are more benefits of using  The virtual DOM would improve performance. # collective-london-randomusers
++ Creating this app with a UI library like React would mean better readability, easier maintainability and taking advantage of components which maximizes reusability and optimises the architecture.
